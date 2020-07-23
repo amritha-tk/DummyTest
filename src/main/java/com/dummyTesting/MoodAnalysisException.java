@@ -1,7 +1,14 @@
 package com.dummyTesting;
 
 public class MoodAnalysisException extends Exception {
-    public MoodAnalysisException(String message) {
+    enum ExceptionType{
+        ENTERED_NULL,ENTERED_EMPTY
+    }
+
+    ExceptionType type;
+
+    public MoodAnalysisException(ExceptionType type,String message) {
         super(message);
+        this.type=type;
     }
 }

@@ -5,6 +5,7 @@ import org.junit.Test;
 import org.junit.rules.ExpectedException;
 
 public class MooAnalyserTest {
+
     @Test
     public void testSadMoodAnalyser() throws MoodAnalysisException {
         MooAnalyser mooAnalyser = new MooAnalyser("I am in sad mood");
@@ -19,19 +20,25 @@ public class MooAnalyserTest {
         Assert.assertEquals("HAPPY",mood);
 
     }
+
     @Test
     public void givenNullMood_ShouldThrowException() {
         MooAnalyser mooAnalyser = new MooAnalyser(null);
-        String mood = null;
         try {
-            ExpectedException exceptionRule = ExpectedException.none();
-            exceptionRule.expect(MoodAnalysisException.class);
-            mood = mooAnalyser.analyseMood();
-         //   Assert.assertEquals("HAPPY",mood);
+             mooAnalyser.analyseMood();
         } catch (MoodAnalysisException e) {
-
-            Assert.assertEquals("Please enter proper message",e.getMessage());
+           Assert.assertEquals(MoodAnalysisException.ExceptionType.ENTERED_NULL,e.type);
         }
 
+    }
+
+    @Test
+    public void givenEmpty_ShouldThrowException() {
+        MooAnalyser mooAnalyser = new MooAnalyser("");
+        try {
+            mooAnalyser.analyseMood();
+        } catch (MoodAnalysisException e) {
+            Assert.assertEquals(MoodAnalysisException.ExceptionType.ENTERED_EMPTY,e.type);
+        }
     }
 }
