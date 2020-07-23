@@ -1,8 +1,22 @@
 package com.dummyTesting;
 
 public class MooAnalyser {
+    String message;
 
-    public String analyseMood(String message)  {
-                return "SAD";
+    public MooAnalyser() {
+
+    }
+
+    public MooAnalyser(String message) {
+        this.message = message;
+    }
+
+    public String analyseMood() {
+        if (message.contains("sad")) {
+            return "SAD";
+        }
+        else {
+            return "HAPPY";
+        }
     }
 }
