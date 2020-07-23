@@ -20,16 +20,17 @@ public class MooAnalyserTest {
 
     }
     @Test
-    public void givenNullMoodShouldReturnHappy() {
+    public void givenNullMood_ShouldThrowException() {
         MooAnalyser mooAnalyser = new MooAnalyser(null);
         String mood = null;
         try {
             ExpectedException exceptionRule = ExpectedException.none();
             exceptionRule.expect(MoodAnalysisException.class);
             mood = mooAnalyser.analyseMood();
-            Assert.assertEquals("HAPPY",mood);
+         //   Assert.assertEquals("HAPPY",mood);
         } catch (MoodAnalysisException e) {
-            e.printStackTrace();
+
+            Assert.assertEquals("Please enter proper message",e.getMessage());
         }
 
     }
