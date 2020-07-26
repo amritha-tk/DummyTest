@@ -12,3 +12,9 @@ repositories {
 dependencies {
     testCompile group: 'junit', name: 'junit', version: '4.12'
 }
+dependencies {
+    compile group: 'com.opencsv', name: 'opencsv', version: '4.0'
+}
+dependencies {
+    compile group: 'com.google.code.gson', name: 'gson', version: '2.2'
+}

@@ -29,7 +29,6 @@ public class MooAnalyserTest {
         } catch (MoodAnalysisException e) {
            Assert.assertEquals(MoodAnalysisException.ExceptionType.ENTERED_NULL,e.type);
         }
-
     }
 
     @Test
